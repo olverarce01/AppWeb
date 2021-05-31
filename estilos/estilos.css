@@ -1,0 +1,28 @@
+/*Esto se mantiene*/
+body {
+
+    background-color: #4E4D4C;
+}
+
+.fondo {
+    width: 100%;
+    background-repeat: repeat-y;
+}
+
+p {
+    color: #850909;
+    font-size: 20px;
+}
+
+
+#logo {
+    margin-top: 5px;
+    margin-left: 0;
+    height: 40px;
+
+}
+
+
+#notificacion {
+    height: 50px;
+}
