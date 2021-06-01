@@ -17,26 +17,69 @@
   <header>
     <div class="container-fluid">
       <div class="row justify-content-sm-between">
-        <div class="col-xs-12-center col-md-auto" id="opcion">
+        <div class="col-xs-12 col-md-auto text-center elementoHeader" id="opcion">
           <img src="recursos/logo.png" alt="" class="logo" id="logo">
         </div>
 
-        <div class="col-xs-12 col-md text-center" id="cabeza">
+        <div class="col-xs-12 col-md text-center elementoHeader" id="cabeza">
           <div class="btn-group " role="group" aria-label="Basic mixed styles example">
-            <button type="button" class="btn btn-danger">Left</button>
-            <button type="button" class="btn btn-warning">Middle</button>
-            <button type="button" class="btn btn-success">Right</button>
+            <button type="button" class="btn botonHeader">Left</button>
+            <button type="button" class="btn botonHeader">Middle</button>
+            <button type="button" class="btn botonHeader">Right</button>
           </div>
         </div>
 
-        <div class="col-xs-12 col-md-auto">
+        <div class="col-xs-12 col-md-auto text-center elementoHeader" id="iconotif">
           <img src="recursos/notificacion.png" id="notificacion" alt="notificacion">
         </div>
       </div>
     </div>
 
   </header>
-  <img src="recursos/PantallaPrincipalV1.jpg" class='fondo' alt="fondo">
+  <div id="contenido">
+      <div class="row text-center">
+        <div class="col-md-6">
+          <table class="default">
+            <tr>
+              <th>Pos</th>
+              <th>Club</th>
+              <th>PTS</th>
+              <th>PJ</th>
+              <th>DF</th>
+            </tr>
+            <tr class="itemImpar">
+              <td>1</td>
+              <td><img src="recursos/audaxItaliano.svg" width="35px" height="35px">Audax Italiano </td>
+              <td>13</td>
+              <td>7</td>
+              <td>0</td>
+            </tr>
+            <tr class="itemPar">
+              <td>2</td>
+              <td><img src="recursos/UniversidadCatolica.svg" width="35px" height="35px">Universidad Católica </td>
+              <td>12</td>
+              <td>6</td>
+              <td>0</td>
+            </tr>
+            <tr class="itemImpar">
+              <td>3</td>
+              <td><img src="recursos/DeportesLaSerena.svg" width="35px" height="35px">Deportes la serena </td>
+              <td>13</td>
+              <td>7</td>
+              <td>0</td>
+            </tr>
+          </table>
+        </div>
+        <div class="col-md-6">
+          <div class="card-body cardN">
+            <h5 class="card-title">tituloNoticia</h5>
+            <p class="card-text">contenidoNoticia</p>
+            <a href="NoticiaEspecifica.html">ver mas</a>
+          </div>
+        </div>
+        
+      </div>
+  </div>
   <footer >
     <div class="container-fluid">
       <p class="fw-bold">© 2021 Chimalongis , Inc. All Rights Reserved Av.Vespucio , CAmaron ,
