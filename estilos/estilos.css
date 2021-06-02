@@ -53,9 +53,14 @@ body {
 th{
     background-color: crimson;
 }
+
 .card{
     margin-top: 20px;
     color: white;
     border-radius: 30px;
     background-color: crimson;
+}
+.card-img-top{
+    border-top-left-radius: 30px;
+    border-top-right-radius: 30px;
 }
