@@ -38,6 +38,10 @@ p {
     height: 40px;
 
 }
+#tablaPosiciones{
+    margin-inline: auto;
+    background-color: blueviolet;
+}
 .elementoHeader{
     margin-bottom: 10px;
 }
