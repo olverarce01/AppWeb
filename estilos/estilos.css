@@ -10,16 +10,14 @@ body {
 }
 #contenido{
     width: 100%;
-    height: 600px;
+    height: auto;
     background-color:#850909;
     background-image: url('../recursos/PantallaPrincipalV1.jpg');
 }
-p {
-    color: #850909;
-    font-size: 20px;
-}
+
 .botonHeader{
     background-color: crimson;
+    margin-top: 10px;
     color:black;
     border-color: black;
 }
@@ -27,10 +25,10 @@ p {
     background-color: crimson;
 }
 .itemImpar{
-    background-color: gray;
+    background-color:black;
 }
 .itemPar{
-    background-color: honeydew;
+    background-color:gray;
 }
 #logo {
     margin-top: 5px;
@@ -40,6 +38,9 @@ p {
 }
 #tablaPosiciones{
     margin-inline: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: white;
     background-color: blueviolet;
 }
 .elementoHeader{
@@ -52,6 +53,9 @@ p {
 th{
     background-color: crimson;
 }
-.cardN{
-    background-color: gray;
+.card{
+    margin-top: 20px;
+    color: white;
+    border-radius: 30px;
+    background-color: crimson;
 }
