@@ -59,6 +59,9 @@ td{
     margin-right: 30px;
 }
 .card{
+    margin-inline: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
     color: white;
     border-radius: 30px;
     background-color: crimson;
