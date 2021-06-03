@@ -51,11 +51,14 @@ body {
     height: 50px;
 }
 th{
+    width: 5%;
     background-color: crimson;
 }
-
+td{
+    width: 5%;
+    margin-right: 30px;
+}
 .card{
-    margin-top: 20px;
     color: white;
     border-radius: 30px;
     background-color: crimson;
