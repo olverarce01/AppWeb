@@ -18,7 +18,6 @@ body {
 #contenido {
     width: 100%;
     height: auto;
-    background-color: #850909;
     background-image: url('../recursos/PantallaPrincipalV1.jpg');
 }
 
@@ -27,6 +26,9 @@ body {
     margin-top: 10px;
     color: #eeee;
     border-color: black;
+    font-size: 15px;
+    font-family: 'Montserrat',sans-serif;
+    text-shadow: 5px 5px 5px black;
 }
 
 #descripcionTabla {
@@ -53,12 +55,9 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     color: white;
-    background-color: black;
+    background-color: transparent;
 }
 
-.elementoHeader {
-    margin-bottom: 10px;
-}
 
 #notificacion {
     height: 50px;
@@ -94,14 +93,15 @@ tr:hover {
     height: 350px;
     width: 260px;
     color: white;
-    border-radius: 30px;
+    border-radius: 10px;
     background-color: crimson;
     transition: all 0.25s;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
+    border-color:black;
 }
 
 .card-title {
-    font-family: 'Odibee Sans', cursive;
+    font-family: 'Montserrat',sans-serif;
     color: white;
 }
 
@@ -109,14 +109,11 @@ body {
     font-family: 'Roboto', sans-serif;
 }
 
-button {
-    font-family: 'Odibee Sans', cursive;
-    color: white;
-}
-
 footer {
     display: block;
-    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+    font-size: 20px;
+    font-family: 'Caveat',cursive;
 }
 
 .card:hover {
@@ -125,8 +122,8 @@ footer {
 }
 
 .card-img-top {
-    border-top-left-radius: 30px;
-    border-top-right-radius: 30px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
 /*   Noticia-plantilla  la plantilla tiene
@@ -157,4 +154,10 @@ footer {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     color: #eeee;
     
+}
+#opcion{
+    background-color: aliceblue;
+}
+#iconotif{
+    background-color: aliceblue;
 }
