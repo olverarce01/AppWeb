@@ -161,3 +161,36 @@ footer {
 #iconotif{
     background-color: aliceblue;
 }
+#tablaligas{
+    margin-inline: auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    color: white;
+    background-color: transparent;
+
+}
+#footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height: 10px;
+   width:100%;
+   background-color: rgba(22, 22, 22, 0.288);
+}
+.parent {
+    height: 200px;
+    background: #CCCCCC;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    }
+ .child {
+    background-color: #FFFF00;
+    width: 100px;
+    height: 100px;
+ }
+ .margin{
+     margin-left:  20px; 
+     margin-right: 20px;
+ }
+ 
