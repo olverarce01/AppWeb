@@ -22,10 +22,12 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Odibee+Sans&family=Roboto:ital,wght@0,400;0,700;1,900&display=swap"
         rel="stylesheet">
+        
     <title>Chilean Premier League</title>
 </head>
 
 <body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <header>
         <div class="container-fluid">
             <div class="row justify-content-sm-between">
@@ -57,7 +59,7 @@
 
             <div class="row  justify-content-around">
                 <!-------Borde lateral izquierdo------->
-                <div class="col-sm-2 border lateralizq"></div> 
+                <div class="col-sm-2 border lateralizq"></div>
                 <!-------contenido de la noticia------->
                 <div class="col-sm-8 border centro text-center">
                     <img src="recursos/noticia1.jpg" class="mx-auto d-block img-fluid" alt="">
@@ -79,12 +81,28 @@
                         pretium. Sed purus elit, varius tincidunt ante ac, lobortis posuere leo. Vestibulum pulvinar
                         ipsum cursus tellus vestibulum faucibus.
                     </span>
+                    <div div class="mx-auto caja_texto" style="width: auto;">
+                        <div class="mb-3">
+                            <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
+                            <input type="email" class="form-control" id="exampleFormControlInput1"
+                                placeholder="ejemplo@correo.com">
+                        </div>
+                        <div class="mb-3">
+                            <label for="exampleFormControlTextarea1" class="form-label">Comentario</label>
+                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Escriba su comentario aqui..."></textarea>
+                        </div>
+                    </div>
                 </div>
-                   <!-------Borde lateral derecho------->
-                <div class="col-sm-2 border lateralder"></div>
+                <!-------Borde lateral derecho------->
+                <div class="col-sm-2 border lateralder">
+                    
+                </div>
             </div>
-
-        </div>
+            <a href="#" class="to-top">
+                <i class="fas fa-chevron-up"></i>
+              </a>
+            </button>
+            </div>
 
     </div>
     <!---------------------------------------------------->
@@ -99,6 +117,7 @@
         </div>
     </footer>
     <!-- anhadi otro comentario :^) -->
+    <script type="text/javascript" src="/AppWeb/JS/scrollboton.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous">
     </script>
