@@ -278,3 +278,53 @@ footer {
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
 }
+
+.nav{
+    margin-bottom: 300px;
+    margin-left: 300px;
+    top: 0;
+}
+.options > div{
+    z-index: 10;
+    transition: allb450ms linear;
+}
+.check, .openButtom, .options > div{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-color: #18e776;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+div i{
+    color: #041119;
+    font-size: 24px;
+}
+.openButtom{
+    transform: rotate(8deg);
+    transform: transform 450ms ease;
+    z-index: 20;
+    background-color: #18e776;
+}
+.check{
+    opacity: 0;
+    z-index: 30;
+}
+.check:checked ~ .openButtom ~ .options >
+div:first-child{
+    margin-top: 180px;
+}
+.check:checked ~ .openButtom ~ .options > 
+div:nth-child(even){
+    margin-top: 120px;
+}
+.check:checked ~ .openButtom ~ .options >
+div:last-child{
+    margin-top: 60px;
+}
+.check:checked ~ .openButtom{
+    transform: rotate(180deg);
+}
