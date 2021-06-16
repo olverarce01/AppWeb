@@ -153,9 +153,11 @@ footer {
 
 .texto-noticias {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-    color: #eeee;  
+    color: white;  
 }
-
+.carousel-caption{
+    background-color: rgba(0, 0, 0, .6);
+}
 .caja_texto{
     margin-left: 100px;
     background-color: rgba(228, 228, 228, 0.933);
