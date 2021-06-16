@@ -213,7 +213,7 @@ footer {
 }
 .parent {
     height: 200px;
-    background: #CCCCCC;
+    background: #afa7a7;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -228,3 +228,13 @@ footer {
      margin-right: 20px;
  }
  
+ .btnComentar{
+     background-color: white;
+     margin-top: 10px;
+     margin-bottom: 20px;
+ }
+ .media{
+     background-color: antiquewhite;
+     margin-bottom: 10px;
+     justify-content: left;
+ }
