@@ -55,7 +55,7 @@ body {
     margin-top: 20px;
     margin-bottom: 20px;
     color: white;
-    background-color: transparent;
+    background-color: white;
 }
 
 
@@ -105,6 +105,16 @@ tr:hover {
     color: white;
 }
 
+.card:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
 }
@@ -116,15 +126,6 @@ footer {
     font-family: 'Caveat',cursive;
 }
 
-.card:hover {
-    transform: translateY(-15px);
-    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
-}
-
-.card-img-top {
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
-}
 
 /*   Noticia-plantilla  la plantilla tiene
     degradado que se va oscureciendo
@@ -234,7 +235,44 @@ footer {
      margin-bottom: 20px;
  }
  .media{
-     background-color: antiquewhite;
+     background-color: whitesmoke;
      margin-bottom: 10px;
-     justify-content: left;
  }
+ .mediaInicio{
+     text-align: start;
+ }
+ .mediaFin{
+     text-align: end;
+ }
+ .fotoUser{
+     margin-top: 5px;
+ }
+ .card2 {
+    margin-inline: auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    height: 250px;
+    width: 150px;
+    color: black;
+    border-radius: 10px;
+    background-color: white;
+    transition: all 0.25s;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0);
+    border-color:black;
+    text-align: center;
+    font-size: 12px;
+}
+
+.card2-title {
+    font-family: 'Montserrat',sans-serif;
+    color: black;
+}
+.card2:hover {
+    transform: translateY(-15px);
+    box-shadow: 0 12px 16px rgba(0, 0, 0, 0.2);
+}
+
+.card2-img-top {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
