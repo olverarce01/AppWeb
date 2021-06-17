@@ -7,9 +7,16 @@ body {
     background: linear-gradient(to center, #232526, #414345);
     /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 
-
+    font-family: 'Roboto', sans-serif;
 }
-
+.nav{
+    margin-top: 10px;
+    margin-bottom: 40px;
+    width: 100%;
+}
+.iconotif{
+    border-radius: 50%;
+}
 .fondo {
     width: 100%;
     background-repeat: repeat-y;
@@ -18,6 +25,8 @@ body {
 #contenido {
     width: 100%;
     height: auto;
+    margin: auto;
+    margin-top: 10px;
     background-image: url('../recursos/PantallaPrincipalV1.jpg');
 }
 
@@ -47,7 +56,7 @@ body {
     margin-top: 5px;
     margin-left: 0;
     height: 40px;
-
+    width: auto;
 }
 
 #tablaPosiciones {
@@ -56,13 +65,6 @@ body {
     margin-bottom: 20px;
     color: white;
     background-color: white;
-}
-
-
-#notificacion {
-    height: 50px;
-    padding-top: 5px;
-    
 }
 
 th {
@@ -115,9 +117,7 @@ tr:hover {
     border-top-right-radius: 10px;
 }
 
-body {
-    font-family: 'Roboto', sans-serif;
-}
+
 
 footer {
     display: block;
@@ -192,12 +192,8 @@ footer {
  Dogo feo, no borren esto es para no perderme cuando modifico mi parte :^)
 */
 
-#opcion{
-    background-color: aliceblue;
-}
-#iconotif{
-    background-color: aliceblue;
-}
+
+
 #tablaligas{
     margin-inline: auto;
     margin-top: 50px;
@@ -279,11 +275,7 @@ footer {
     border-top-right-radius: 10px;
 }
 
-.nav{
-    margin-bottom: 300px;
-    margin-left: 300px;
-    top: 0;
-}
+
 .options > div{
     z-index: 10;
     transition: allb450ms linear;
@@ -292,7 +284,7 @@ footer {
     width: 50px;
     height: 50px;
     position: absolute;
-    background-color: #18e776;
+    background-color:white;
     border-radius: 50%;
     display: flex;
     align-items: center;
@@ -307,23 +299,31 @@ div i{
     transform: rotate(8deg);
     transform: transform 450ms ease;
     z-index: 20;
-    background-color: #18e776;
+    background-color:white;
 }
 .check{
     opacity: 0;
     z-index: 30;
 }
-.check:checked ~ .openButtom ~ .options >
-div:first-child{
+.check:checked ~ .openButtom ~ .options > 
+div:nth-child(1){
+    margin-top: 60px;
+}
+.check:checked ~ .openButtom ~ .options > 
+div:nth-child(2){
+    margin-top: 120px;
+}
+.check:checked ~ .openButtom ~ .options > 
+div:nth-child(3){
     margin-top: 180px;
 }
 .check:checked ~ .openButtom ~ .options > 
-div:nth-child(even){
-    margin-top: 120px;
+div:nth-child(4){
+    margin-top: 240px;
 }
-.check:checked ~ .openButtom ~ .options >
-div:last-child{
-    margin-top: 60px;
+.check:checked ~ .openButtom ~ .options > 
+div:nth-child(5){
+    margin-top: 300px;
 }
 .check:checked ~ .openButtom{
     transform: rotate(180deg);
