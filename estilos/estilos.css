@@ -231,10 +231,12 @@ footer {
      background-color: white;
      margin-top: 10px;
      margin-bottom: 20px;
+     border-radius: 10px;
  }
  .media{
      background-color: whitesmoke;
      margin-bottom: 10px;
+     border-radius: 10px;
  }
  .mediaInicio{
      text-align: start;
@@ -327,4 +329,20 @@ div:nth-child(5){
 }
 .check:checked ~ .openButtom{
     transform: rotate(180deg);
+}
+.login-btn {
+    width: 85px;
+    line-height: 38px;
+    padding: 0;
+    color: rgba(4,4,19,0.56);
+    text-align: center;
+    border-radius: 10px;
+    background-color: white;
+    text-decoration: none;
+}
+.opcionComentarios{
+    color: darkslategray;
+    text-decoration: none;
+    background-color: gainsboro;
+    border-radius: 10px;
 }
