@@ -346,3 +346,9 @@ div:nth-child(5){
     background-color: gainsboro;
     border-radius: 10px;
 }
+
+/*nacho parte mia*/
+#mojon{
+    text-align: center;
+    color: white;
+}
