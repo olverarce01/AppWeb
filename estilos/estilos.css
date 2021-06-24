@@ -9,6 +9,15 @@ body {
 
     font-family: 'Roboto', sans-serif;
 }
+.links:link {
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.links:visited {
+    color: #FFFFFF;
+}
+
 .nav{
     margin-top: 10px;
     margin-bottom: 40px;
