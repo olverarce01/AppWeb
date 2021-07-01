@@ -4,6 +4,7 @@ firebase.initializeApp({
     projectId: 'chileanpremierleague-cf84c'
   });
   var db = firebase.firestore();
+
 var nameV="anonimo", dateV="7:49pm, Hoy", textV;
 function Ready(){
     textV = document.getElementById('exampleFormControlTextarea1').value;
@@ -99,6 +100,7 @@ let listaIds=[];
     }
     /*parte de comentarios */
     function actualizarMensajes(){
+        obtenerNroNoticia();
         db.collection("messages").get().then((querySnapshot)=>{
             var contenedor=document.getElementById("contenedorComentarios");
             while (contenedor.firstChild) {
@@ -111,3 +113,32 @@ let listaIds=[];
          });
        
    }
+
+function obtenerNroNoticia(){
+    db.ref().collection("news").doc("NroNoticias").get().then((snapshot) => {
+        console.log(snapshot);
+        if (snapshot.exists()) {
+          console.log(snapshot.val());
+        } else {
+          console.log("No data available");
+        }
+      }).catch((error) => {
+        console.error(error);
+      });   
+}
+/*   
+function actualizarNocitia(){
+spanNoticia=document.getElementById("texto-noticia");
+imgNoticia=document.getElementById("imagen-noticia");
+db.collection("noticias").get().then((querySnapshot)=>{
+    dataNoticia=querySnapshot[0];
+    imgNoticia.src=dataNoticia.data().link;
+    spanNoticia.textContent=dataNoticia.data().texto;
+    
+    
+    querySnapshot.forEach((doc)=>{
+         var media=new Media(doc.id,doc.data().name,doc.data().date,doc.data().text);
+     })
+
+ });
+}*/
