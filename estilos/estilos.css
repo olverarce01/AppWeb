@@ -22,6 +22,7 @@ body {
     margin-top: 10px;
     margin-bottom: 40px;
     width: 100%;
+    margin-left: 50%;
 }
 .iconotif{
     border-radius: 50%;
@@ -67,7 +68,9 @@ body {
     height: 40px;
     width: auto;
 }
-
+#iconoNotificacion{
+    margin-left: auto;
+}
 #tablaPosiciones {
     margin-inline: auto;
     margin-top: 20px;
