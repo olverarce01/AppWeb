@@ -132,7 +132,7 @@ let listaIds=[];
     var docRef = db.collection("news").doc(docu);
     docRef.get().then((doc) => {
         if (doc.exists) {
-            console.log("Document data:", doc.data());
+            //console.log("Document data:", doc.data());
             spanNoticia.textContent=doc.data().texto;
             imgNoticia.src=doc.data().imagen;
         } else {
@@ -204,3 +204,24 @@ function obtenerNroNoticia(){
      });   
 }
 obtenerNroNoticia();
+
+
+///notificaciones////
+var listaIconos=document.getElementsByClassName("iconotif");
+for (i = 0; i < listaIconos.length; i++) {
+    var element=listaIconos[i]; 
+
+    window.addEventListener('load',()=>{
+        element.addEventListener('click',()=>{
+            Notification.requestPermission().then(function (permiso) {
+                if(permiso=='granted'){
+                    console.log("te van a llegar notif");
+                }
+            });
+        });
+    });
+    
+
+} 
+
+
