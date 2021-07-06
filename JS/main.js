@@ -25,9 +25,10 @@ function Ready(){
 }
 let listaIds=[];
     document.getElementById('btnComentar').onclick=function(){
-        actualizarMensajes();
         Ready();
-        db.collection("messages").add({
+        
+        /*
+        db.collection("news").doc(idDocumento).collection("messages").add({                         ////
             name: nameV,
             date: dateV,
             text: textV
@@ -38,7 +39,7 @@ let listaIds=[];
         })
         .catch((error) => {
             console.error("Error adding document: ", error);
-        });
+        });*/
     }
     
  
@@ -113,18 +114,29 @@ let listaIds=[];
     }
     /*parte de comentarios */
     function actualizarMensajes(){
-        db.collection("messages").get().then((querySnapshot)=>{
-            var contenedor=document.getElementById("contenedorComentarios");
-            while (contenedor.firstChild) {
-                contenedor.removeChild(contenedor.firstChild);
-            }
-             querySnapshot.forEach((doc)=>{
-                 var media=new Media(doc.id,doc.data().name,doc.data().date,doc.data().text);
-                 contenedor.appendChild(media.forHtml());
-             })
-         });
-       
-   }
+        var idDocumento;
+        var docRef = db.collection("news").doc("nro");
+        docRef.get().then((doc) => {
+        if (doc.exists) {
+            idDocumento="noticia".concat((doc.data().number).toString());
+
+            db.collection("messages").doc(idDocumento).collection("messages").get().then((querySnapshot)=>{                         ////
+                var contenedor=document.getElementById("contenedorComentarios");
+                while (contenedor.firstChild) {
+                    contenedor.removeChild(contenedor.firstChild);
+                }
+                 querySnapshot.forEach((doc)=>{
+                     console.log(doc.id);
+                     var media=new Media(doc.id,doc.data().name,doc.data().date,doc.data().text);
+                     contenedor.appendChild(media.forHtml());
+                 })
+             });
+           
+        }
+        });
+        
+        
+    }
 
    function actualizarNoticia(docu){
     spanNoticia=document.getElementById("texto-noticia");
@@ -204,24 +216,3 @@ function obtenerNroNoticia(){
      });   
 }
 obtenerNroNoticia();
-
-
-///notificaciones////
-var listaIconos=document.getElementsByClassName("iconotif");
-for (i = 0; i < listaIconos.length; i++) {
-    var element=listaIconos[i]; 
-
-    window.addEventListener('load',()=>{
-        element.addEventListener('click',()=>{
-            Notification.requestPermission().then(function (permiso) {
-                if(permiso=='granted'){
-                    console.log("te van a llegar notif");
-                }
-            });
-        });
-    });
-    
-
-} 
-
-
