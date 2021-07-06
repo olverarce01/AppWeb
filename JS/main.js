@@ -31,7 +31,6 @@ let listaIds=[];
         docRef.get().then((doc) => {
         if (doc.exists) {
             idDocumento="noticia".concat((doc.data().number).toString());
-
             db.collection("news").doc(idDocumento).collection("messages").add({                         ////
                 name: nameV,
                 date: dateV,
@@ -47,7 +46,8 @@ let listaIds=[];
            
         }
         });
-        
+        actualizarMensajes();
+
     }
     
  
