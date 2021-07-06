@@ -127,6 +127,8 @@ function obtenerItemEquipo(){
                 contador++;
                 var col1=document.createElement("td");
                 col1.textContent=doc.data().pos;    //pos
+
+                
                 var col2=document.createElement("td");
                 var imgIco=document.createElement("img");
                 imgIco.src=doc.data().icono;

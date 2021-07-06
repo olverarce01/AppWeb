@@ -26,20 +26,28 @@ function Ready(){
 let listaIds=[];
     document.getElementById('btnComentar').onclick=function(){
         Ready();
+        var idDocumento;
+        var docRef = db.collection("news").doc("nro");
+        docRef.get().then((doc) => {
+        if (doc.exists) {
+            idDocumento="noticia".concat((doc.data().number).toString());
+
+            db.collection("news").doc(idDocumento).collection("messages").add({                         ////
+                name: nameV,
+                date: dateV,
+                text: textV
+            })
+            .then((docRef) => {
+                console.log("Document written with ID: ", docRef.id);
+                listaIds.push(docRef.id);
+            })
+            .catch((error) => {
+                console.error("Error adding document: ", error);
+            });
+           
+        }
+        });
         
-        /*
-        db.collection("news").doc(idDocumento).collection("messages").add({                         ////
-            name: nameV,
-            date: dateV,
-            text: textV
-        })
-        .then((docRef) => {
-            console.log("Document written with ID: ", docRef.id);
-            listaIds.push(docRef.id);
-        })
-        .catch((error) => {
-            console.error("Error adding document: ", error);
-        });*/
     }
     
  
@@ -120,7 +128,7 @@ let listaIds=[];
         if (doc.exists) {
             idDocumento="noticia".concat((doc.data().number).toString());
 
-            db.collection("messages").doc(idDocumento).collection("messages").get().then((querySnapshot)=>{                         ////
+            db.collection("news").doc(idDocumento).collection("messages").get().then((querySnapshot)=>{                         ////
                 var contenedor=document.getElementById("contenedorComentarios");
                 while (contenedor.firstChild) {
                     contenedor.removeChild(contenedor.firstChild);
@@ -142,6 +150,7 @@ let listaIds=[];
     spanNoticia=document.getElementById("texto-noticia");
     imgNoticia=document.getElementById("imagen-noticia");
     var docRef = db.collection("news").doc(docu);
+    actualizarMensajes();
     docRef.get().then((doc) => {
         if (doc.exists) {
             //console.log("Document data:", doc.data());
