@@ -24,8 +24,8 @@ firebase.initializeApp({
                 var nroNoticia=(doc.id).slice(7);
                 var divCard=document.createElement("div");
                 divCard.classList.add("card");
-                divCol.onclick=function(){
-            
+                divCard.onclick=function(){
+
                     var docRef=db.collection("news").doc("nro");
                     docRef.get().then((doc)=>{
                         if(doc.exists){
@@ -33,8 +33,7 @@ firebase.initializeApp({
                         number: nroNoticia
                         })
                         console.log("update!");
-                        //obtenerNroNoticia();
-                        window.location.href="noticia-plantilla.html";
+                        
                     }       
                     else{
                         console.log("No update!");
@@ -42,9 +41,11 @@ firebase.initializeApp({
                     })
                     .catch((error)=>{console.log("error getting document:",error);
                     });   
+                    window.location.href("noticia-plantilla.html");
+
                 }
 
-                //var aEnlace=document.createElement("a");
+                var aEnlace=document.createElement("a");
                 //aEnlace.classList.add("links");
 
                 var imagenCard=document.createElement("img");
@@ -67,13 +68,17 @@ firebase.initializeApp({
                 divCardBody.appendChild(h5Titulo);
                 divCardBody.appendChild(pContenido);
 
-                //aEnlace.appendChild(imagenCard);
-                //aEnlace.appendChild(divCardBody);
+                aEnlace.appendChild(imagenCard);
+                aEnlace.appendChild(divCardBody);
 
-                divCard.appendChild(imagenCard);
-                divCard.appendChild(divCardBody);
+                //divCard.appendChild(imagenCard);
+                //divCard.appendChild(divCardBody);
                 
+                //divCol.appendChild(divCard);
+                divCard.appendChild(aEnlace);
+
                 divCol.appendChild(divCard);
+                
                 contenedor.appendChild(divCol);
                 }
 
