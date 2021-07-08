@@ -139,7 +139,6 @@ function obtenerItemEquipo(){
             return b.data().pts - a.data().pts;
           });
 
-         console.log(documentos[15].data());
          var contadorpos=1;
          documentos.forEach(function(doc) {
     
@@ -193,3 +192,63 @@ function obtenerItemEquipo(){
   
 }
 obtenerItemEquipo();
+
+document.getElementById('botonNotificaciones').onclick=function(){
+    console.log("assssssssd");
+    // Comprobamos si el navegador soporta las notificaciones
+  if (!("Notification" in window)) {
+    alert("Este navegador no soporta las notificaciones del sistema");
+  }
+
+  // Comprobamos si ya nos habían dado permiso
+  else if (Notification.permission === "granted") {
+    // Si esta correcto lanzamos la notificación
+    var notification = new Notification("Ya aceptaste las notificaciones");
+  }
+
+  // Si no, tendremos que pedir permiso al usuario
+  else if (Notification.permission !== 'denied') {
+    Notification.requestPermission(function (permission) {
+      // Si el usuario acepta, lanzamos la notificación
+      if (permission === "granted") {
+        var notification = new Notification("Bienvenido a Notificaciones ChileanPremierLeague");
+      }
+    });
+  }
+
+  // Finalmente, si el usuario te ha denegado el permiso y
+  // quieres ser respetuoso no hay necesidad molestar más.
+   
+}
+
+function spawnNotification(theBody,theIcon,theTitle) {
+    var options = {
+        body: theBody,
+        icon: theIcon
+    }
+    var n = new Notification(theTitle,options);
+    //setTimeout(n.close.bind(n), 5000);
+  }
+  //spawnNotification("a vs b","recursos/zee-ball.png","Partido de Hoy");
+ 
+  function recibirNotificaciones(){
+    db.collection("notifications").get().then((querySnapshot)=>{
+        var notificaciones=[];
+         querySnapshot.forEach((doc)=>{
+            notificaciones.push(doc);
+         })
+         notificaciones.forEach(function(doc) {
+            spawnNotification(doc.data().body,doc.data().icono,doc.data().titulo);
+
+            db.collection("notifications").doc(doc.id).delete().then(() => {
+                console.log("Document successfully deleted!");
+            }).catch((error) => {
+                console.error("Error removing document: ", error);
+            }); 
+
+         });
+     });
+       
+  
+}
+recibirNotificaciones();
