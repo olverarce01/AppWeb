@@ -17,13 +17,27 @@ firebase.initializeApp({
          querySnapshot.forEach((doc)=>{
                 if(doc.id!="nro")
                 {
-                
+                var nroNoticia=(doc.id).slice(7);
                 var divItem=document.createElement("div");
                 divItem.classList.add("carousel-item");
+                divItem.onclick=function(){
+                  var docRef=db.collection("news").doc("nro");
+                  docRef.get().then((documento)=>{
+                      if(documento.exists){
+                      db.collection("news").doc("nro").update({
+                      number: nroNoticia
+                      })
+                      console.log("update!");
+                      }       
+                  else{
+                      console.log("No update!");
+                  }              
+                  })    
+                  window.open("noticia-plantilla.html");
+              }
                 //divItem.classList.add("active");
                 
                 var aItem=document.createElement("a");
-                aItem.href="noticia-plantilla.html";///
                 var imgItem=document.createElement("img");
                 imgItem.src=doc.data().imagen;
                 imgItem.classList.add("rounded");
