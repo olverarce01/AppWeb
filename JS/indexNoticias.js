@@ -92,13 +92,15 @@ firebase.initializeApp({
 }
 obtenerNoticias();
 function obtenerItemEquipo(){
-
     db.collection("itemEquipo").get().then((querySnapshot)=>{
-        var contenedor=document.getElementById("tablaPosiciones");
+        var documentos=[];
+        var contenedor=document.getElementById("contenedorItemEquipo");
+        document.removeChild(document.firstChild);
+        
+        var tablapos=document.createElement("table");
+        tablapos.classList.add("default");
+        tablapos.id="tablaPosiciones";
 
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
         var itemRef=document.createElement("tr");
         var pos=document.createElement("th");
         pos.textContent="Pos";
@@ -117,60 +119,75 @@ function obtenerItemEquipo(){
         itemRef.appendChild(pts);
         itemRef.appendChild(pj);
         itemRef.appendChild(df);
-        contenedor.appendChild(itemRef);
+        tablapos.appendChild(itemRef);
         
         
 
         var contador=1;
          querySnapshot.forEach((doc)=>{
-                if(doc.id!="nro")
-                {
-                var itemEquipo=document.createElement("tr");
-                itemEquipo.classList.add("itemImpar");
-                if(contador%2!=0)
-                {   itemEquipo.classList.add("itemImpar");
-                }
-                else{
-                    itemEquipo.classList.add("itemPar");
-                }
-                contador++;
-                var col1=document.createElement("td");
-                col1.textContent=doc.data().pos;    //pos
-
-
-                var col2=document.createElement("td");
-                var imgIco=document.createElement("img");
-                imgIco.src=doc.data().icono;
-                imgIco.width="35";
-                imgIco.height="35";
-                
-                col2.appendChild(imgIco);
-
-                var col3=document.createElement("td");
-                col3.textContent=doc.id;
-
-                var col4=document.createElement("td");
-                col4.textContent=doc.data().pts;
-
-                var col5=document.createElement("td");
-                col5.textContent=doc.data().pj;
-
-                var col6=document.createElement("td");
-                col6.textContent=doc.data().df;
-
-                itemEquipo.appendChild(col1);
-                itemEquipo.appendChild(col2);
-                itemEquipo.appendChild(col3);
-                itemEquipo.appendChild(col4);
-                itemEquipo.appendChild(col5);
-                itemEquipo.appendChild(col6);
-                
-                contenedor.appendChild(itemEquipo);
-                }
-             
+                documentos.push(doc);
          })
+         documentos.sort(function(a, b) {
+             if(b.data().pts==a.data().pts){
+                 if(b.data().pj==a.data().pj){
+                     return b.data().df - a.data().df;
+                 }
+                return b.data().pj - a.data().pj;
+             }
+            return b.data().pts - a.data().pts;
+          });
 
-
+         console.log(documentos[15].data());
+         var contadorpos=1;
+         documentos.forEach(function(doc) {
+    
+            if(doc.id!="nro")
+            {
+            var itemEquipo=document.createElement("tr");
+            itemEquipo.classList.add("itemImpar");
+            if(contador%2!=0)
+            {   itemEquipo.classList.add("itemImpar");
+            }
+            else{
+                itemEquipo.classList.add("itemPar");
+            }
+            contador++;
+            var col1=document.createElement("td");
+            col1.textContent=contadorpos;    //pos
+            contadorpos++;
+    
+            var col2=document.createElement("td");
+            var imgIco=document.createElement("img");
+            imgIco.src=doc.data().icono;
+            imgIco.width="35";
+            imgIco.height="35";
+            
+            col2.appendChild(imgIco);
+    
+            var col3=document.createElement("td");
+            col3.textContent=doc.id;
+    
+            var col4=document.createElement("td");
+            col4.textContent=doc.data().pts;
+    
+            var col5=document.createElement("td");
+            col5.textContent=doc.data().pj;
+    
+            var col6=document.createElement("td");
+            col6.textContent=doc.data().df;
+    
+            itemEquipo.appendChild(col1);
+            itemEquipo.appendChild(col2);
+            itemEquipo.appendChild(col3);
+            itemEquipo.appendChild(col4);
+            itemEquipo.appendChild(col5);
+            itemEquipo.appendChild(col6);
+            
+            tablapos.appendChild(itemEquipo);
+            }
+         });
+         contenedor.appendChild(tablapos);
      });   
+  
 }
 obtenerItemEquipo();
