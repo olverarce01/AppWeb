@@ -40,8 +40,13 @@ function obtenerEquipos(){
             h5Nombre.classList.add("card-title");
             h5Nombre.classList.add("text-center");
             h5Nombre.textContent=doc.id;
+
+            var h5datos=document.createElement("h5");
+            h5datos.textContent=doc.data().datos;
             
             divCardBody.appendChild(h5Nombre);
+            divCardBody.appendChild(h5datos);
+
             divCardEquipo.appendChild(imgIcono);
             divCardEquipo.appendChild(divCardBody);
             divColumna.appendChild(divCardEquipo);

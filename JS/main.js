@@ -197,7 +197,7 @@ function obtenerNroNoticia(){
                 imgNoticia.src=doc.data().imagen;
                 var divContenido=document.createElement("div");
                 divContenido.classList.add("card2-body");
-                divContenido.textContent=doc.data().texto;
+                divContenido.textContent=doc.data().resumen;
                 divNoticia.appendChild(imgNoticia);
                 divNoticia.appendChild(divContenido);
                 divNoticia.onclick=function(){
