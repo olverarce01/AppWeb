@@ -11,11 +11,16 @@ firebase.initializeApp({
     db.collection("news").get().then((querySnapshot)=>{
         var contenedor=document.getElementById("contenedorCardsNoticias");
 
-        while (contenedor.firstChild) {
-            contenedor.removeChild(contenedor.firstChild);
-        }
+        contenedor.removeChild(contenedor.firstChild);
+        var documentos=[];
          querySnapshot.forEach((doc)=>{
-                if(doc.id!="nro")
+            documentos.push(doc);
+            })
+        var divRow=document.createElement("div");
+        divRow.classList.add("row");
+
+        documentos.forEach(function(doc) {
+            if(doc.id!="nro")
                 {
                 var divCol=document.createElement("div");
                 divCol.classList.add("col-md-12");
@@ -81,13 +86,10 @@ firebase.initializeApp({
                 aEnlace.appendChild(divCard);
                 divCol.appendChild(aEnlace);
                 
-                contenedor.appendChild(divCol);
+                divRow.appendChild(divCol);
                 }
-
-
-            })
-
-
+        });
+            contenedor.appendChild(divRow);
      });   
 }
 obtenerNoticias();
@@ -96,7 +98,7 @@ function obtenerItemEquipo(){
         var documentos=[];
         var contenedor=document.getElementById("contenedorItemEquipo");
         document.removeChild(document.firstChild);
-        
+
         var tablapos=document.createElement("table");
         tablapos.classList.add("default");
         tablapos.id="tablaPosiciones";
