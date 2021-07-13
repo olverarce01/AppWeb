@@ -5,7 +5,7 @@ firebase.initializeApp({
   });
   var db = firebase.firestore();
 
-  function obtenerItemPartido(){
+  function obtenerItemPartido(itemPartido){
 
     db.collection("itemPartido").get().then((querySnapshot)=>{
         var contenedor=document.getElementById("contenido");
@@ -35,7 +35,7 @@ firebase.initializeApp({
         itemBase.appendChild(icono2);
 
        
-         querySnapshot.forEach((doc)=>{
+         itemPartido.forEach((doc)=>{
 
                 var col1=document.createElement("td");
                 var imgIco=document.createElement("img");
@@ -88,14 +88,23 @@ firebase.initializeApp({
         console.error("Error adding document: ", error);
     });
 }
-obtenerItemPartido();
+//obtenerItemPartido();
 
 
 
 function obtenerFechas(){
 
-   
+    db.collection("Fechas").get().then((querySnapshot)=>{
+      var itemPartido=[];
+     
+      
+        querySnapshot.forEach((doc)=>{
+           itemPartido.push(doc); 
         
- 
+        console.log(doc.collection().fecha);
+        });
+//obtenerItemPartido(itemPartido);
+    });
+
 }
 obtenerFechas();
