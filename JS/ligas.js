@@ -4,115 +4,98 @@ firebase.initializeApp({
     projectId: 'chileanpremierleague-cf84c'
   });
   var db = firebase.firestore();
+
+  function obtenerItemPartido(){
+
+    db.collection("itemPartido").get().then((querySnapshot)=>{
+        var contenedor=document.getElementById("contenido");
+
+        while (contenedor.firstChild) {
+            contenedor.removeChild(contenedor.firstChild);
+        }
+        var itemBase=document.createElement("tr");
+        var icono1=document.createElement("th");
+        
+        var club=document.createElement("th");
+        club.textContent="club";
+        var goles1=document.createElement("th");
+        var detalle=document.createElement("th");
+        detalle.textContent="vs";
+        var goles2=document.createElement("th");
+        var club2=document.createElement("th");
+        club2.textContent="Club";
+        var icono2=document.createElement("th");
+
+        itemBase.appendChild(icono1);
+        itemBase.appendChild(club);
+        itemBase.appendChild(goles1);
+        itemBase.appendChild(detalle);
+        itemBase.appendChild(goles2);
+        itemBase.appendChild(club2);
+        itemBase.appendChild(icono2);
+
+       
+         querySnapshot.forEach((doc)=>{
+
+                var col1=document.createElement("td");
+                var imgIco=document.createElement("img");
+                imgIco.src=doc.data().icono1;
+                imgIco.width="35";
+                imgIco.height="35";
+                
+                col1.appendChild(imgIco);
+
+                var col2=document.createElement("td");
+                col2.textContent=doc.data().nombre1;
+
+                var col3=document.createElement("td");
+                col3.textContent=doc.data().goles1;
+
+                var col4=document.createElement("td");
+                col4.textContent="-";
+
+                var col5=document.createElement("td");
+                col5.textContent=doc.data().goles2;
+
+                var col6=document.createElement("td");
+                col6.textContent=doc.data().nombre2;
+
+
+                var col7=document.createElement("td");
+                var imgIco2=document.createElement("img");
+                imgIco2.src=doc.data().icono2;
+                imgIco2.width="35";
+                imgIco2.height="35";
+                
+                col7.appendChild(imgIco2);
+
+                itemPartido.appendChild(col1);
+                itemPartido.appendChild(col2);
+                itemPartido.appendChild(col3);
+                itemPartido.appendChild(col4);
+                itemPartido.appendChild(col5);
+                itemPartido.appendChild(col6);
+                itemPartido.appendChild(col7);
+                
+                contenedor.appendChild(itemPartido);
+         })
+        })
+       .then((doc) => {
+        console.log("Document written with ID: ", doc.id);
+      
+    })
+    .catch((error) => {
+        console.error("Error adding document: ", error);
+    });
+}
+obtenerItemPartido();
+
+
+
 function obtenerFechas(){
 
-   var fecha;
+   
         
-    function obtenerItemEquipo(){
-
-        db.collection("itemEquipo").get().then((querySnapshot)=>{
-            var contenedor=document.getElementById("tablaPosiciones");
-    
-            while (contenedor.firstChild) {
-                contenedor.removeChild(contenedor.firstChild);
-            }
-            var itemRef=document.createElement("tr");
-            var pos=document.createElement("th");
-            pos.textContent="Pos";
-            
-            var icono=document.createElement("th");
-            var club=document.createElement("th");
-            club.textContent="Club";
-            var gol=document.createElement("th");
-            var detalle=document.createElement("th");
-            detalle.textContent="vs"
-            var gol2=document.createElement("th");
-            var club2=document.createElement("th");
-            club2.textContent="Club";
-            var icono=document.createElement("th");
-            
-            itemRef.appendChild(pos);
-            itemRef.appendChild(icono);
-            itemRef.appendChild(club);
-            itemRef.appendChild(gol);
-            itemRef.appendChild(detalle);
-            itemRef.appendChild(gol2);
-            itemRef.appendChild(club2);
-            itemRef.appendChild(icono2);
-            
-            contenedor.appendChild(itemRef);
-            
-            
-    
-            var contador=1;
-             querySnapshot.forEach((doc)=>{
-                    if(doc.id!="nro")
-                    {
-                    var itemEquipo=document.createElement("tr");
-                    itemEquipo.classList.add("itemImpar");
-                    if(contador%2!=0)
-                    {   itemEquipo.classList.add("itemImpar");
-                    }
-                    else{
-                        itemEquipo.classList.add("itemPar");
-                    }
-                    contador++;
-                    var col1=document.createElement("td");
-                    col1.textContent=doc.data().pos;    //pos
-    
-    
-                    var col2=document.createElement("td");
-                    var imgIco=document.createElement("img");
-                    imgIco.src=doc.data().icono;
-                    imgIco.width="35";
-                    imgIco.height="35";
-                    
-                    col2.appendChild(imgIco);
-    
-                    var col3=document.createElement("td");
-                    col3.textContent=doc.id;
-    
-                    var col4=document.createElement("td");
-                    col4.textContent=doc.data().pts;
-
-                    var col5=document.createElement("td");
-                    col5.textContent=doc.id;
-    
-                    var col6=document.createElement("td");
-                    col6.textContent=doc.data().df;
-
-                    var col7=document.createElement("td");
-                    col7.textContent=doc.id;
-    
-
-                    var col2=document.createElement("td");
-                    var imgIco=document.createElement("img");
-                    imgIco.src=doc.data().icono2;
-                    imgIco.width="35";
-                    imgIco.height="35";
-                    
-                    col2.appendChild(imgIco);
-    
-                    itemEquipo.appendChild(col1);
-                    itemEquipo.appendChild(col2);
-                    itemEquipo.appendChild(col3);
-                    itemEquipo.appendChild(col4);
-                    itemEquipo.appendChild(col5);
-                    itemEquipo.appendChild(col6);
-                    itemEquipo.appendChild(col7);
-                    itemEquipo.appendChild(col8);
-                    
-                    contenedor.appendChild(itemEquipo);
-                    }
-                 
-             })
-    
-    
-         });   
-    }
-    obtenerItemEquipo();
-
  
-    
 }
 obtenerFechas();
