@@ -93,18 +93,91 @@ firebase.initializeApp({
 
 
 function obtenerFechas(){
+    var fecha="fecha";
+    var i=1;
+    var f=2;
+    while(i<=f){
 
-    db.collection("Fechas").get().then((querySnapshot)=>{
-      var itemPartido=[];
+        var aux=fecha.concat(i.toString());
      
-      
+    db.collection("fechas").doc("fechas").collection(aux).get().then((querySnapshot)=>{
+        var documentos=[];
         querySnapshot.forEach((doc)=>{
-           itemPartido.push(doc); 
-        
-        console.log(doc.collection().fecha);
-        });
-//obtenerItemPartido(itemPartido);
-    });
+           
+            documentos.push(doc);
+        })
+        var fechaPartido = "";
+        documentos.forEach(function(doc){
+if(fechaPartido!=doc.data().nrofecha){
+    var div=document.createElement("div");
+    div.classList.add("fechapartido")
+    div.textContent=doc.data().fecha;
+    document.getElementById("tablaPosiciones").appendChild(div);
+    fechaPartido=doc.data().nrofecha;   
 
+}       
+            
+            var contenedor=document.getElementById("tablaPosiciones");
+            
+            var tr=document.createElement("tr");
+            tr.classList.add("itemImpar")
+            var td1=document.createElement("td");
+            //td1.textContent=doc.data().iconoA;
+            var imagA=document.createElement("img");
+            imagA.src=doc.data().iconoA;
+            imagA.width="35";
+            imagA.height="35";
+            td1.appendChild(imagA);
+            var td2=document.createElement("td");
+            td2.textContent=doc.data().equipoA;
+            var td3=document.createElement("td");
+            td3.textContent=doc.data().golesA;
+            var td4=document.createElement("td");
+            td4.textContent="-";
+            var td5=document.createElement("td");
+            td5.textContent=doc.data().golesB;
+            var td6=document.createElement("td");
+            td6.textContent=doc.data().equipoB;
+            var td7=document.createElement("td");
+            var imagB=document.createElement("img");
+            //td7.textContent=doc.data().iconoB;
+            imagB.src=doc.data().iconoB;
+            imagB.width="35";
+            imagB.height="35";
+            td7.appendChild(imagB);
+  
+
+            tr.appendChild(td1);
+            tr.appendChild(td2);
+            tr.appendChild(td3);
+            tr.appendChild(td4);
+            tr.appendChild(td5);
+            tr.appendChild(td6);
+            tr.appendChild(td7);
+
+            contenedor.appendChild(tr);
+
+          
+        });
+    })
+i++;
+}
+   // var docRef=db.collection("fechas").doc("fechas").collection("fecha1").doc("partido1");
+/*
+    docRef.get().then((doc) => 
+    {
+
+
+        if (doc.exists) {  
+            // console.log("Document data:", doc.data());
+
+        } else {
+            // doc.data() will be undefined in this case
+            console.log("No such document!");
+        }
+    }).catch((error) => {
+        console.log("Error getting document:", error);
+    });
+*/
 }
 obtenerFechas();
