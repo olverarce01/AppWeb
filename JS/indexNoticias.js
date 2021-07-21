@@ -1,9 +1,22 @@
-firebase.initializeApp({
+/*firebase.initializeApp({
     apiKey: 'AIzaSyC7KErVtON_zmPk9wK40pm4RIR1wIBSdZo',
     authDomain: 'chileanpremierleague-cf84c.firebaseapp.com',
     projectId: 'chileanpremierleague-cf84c'
-  });
-  var db = firebase.firestore();
+});*/
+
+
+var config = {
+  apiKey: "AIzaSyC7KErVtON_zmPk9wK40pm4RIR1wIBSdZo",
+  authDomain: "chileanpremierleague-cf84c.firebaseapp.com",
+  databaseURL: "https://chileanpremierleague-cf84c-default-rtdb.firebaseio.com",
+  projectId: 'chileanpremierleague-cf84c',
+  storageBucket: "chileanpremierleague-cf84c.appspot.com"
+};
+firebase.initializeApp(config);
+
+//var db = firebase.firestore();
+var database = firebase.database();
+ 
 
 
   function obtenerNoticias(){
@@ -192,9 +205,9 @@ function obtenerItemEquipo(){
   
 }
 obtenerItemEquipo();
-
+//notificaciones
 document.getElementById('botonNotificaciones').onclick=function(){
-    console.log("assssssssd");
+  
     // Comprobamos si el navegador soporta las notificaciones
   if (!("Notification" in window)) {
     alert("Este navegador no soporta las notificaciones del sistema");
@@ -232,7 +245,16 @@ function spawnNotification(theBody,theIcon,theTitle) {
   //spawnNotification("a vs b","recursos/zee-ball.png","Partido de Hoy");
  
   function recibirNotificaciones(){
-    db.collection("notifications").get().then((querySnapshot)=>{
+
+        var database=db;
+
+var starCountRef =db.ref('notificaciones/'+'noty1');
+starCountRef.on('value', (snapshot) => {
+  const data = snapshot.val();
+	console.log(data);
+  updateStarCount(postElement, data);
+});
+    /*db.collection("notifications").get().then((querySnapshot)=>{
         var notificaciones=[];
          querySnapshot.forEach((doc)=>{
             notificaciones.push(doc);
@@ -248,7 +270,9 @@ function spawnNotification(theBody,theIcon,theTitle) {
 
          });
      });
-       
+   */    
   
 }
 recibirNotificaciones();
+
+
