@@ -1,11 +1,4 @@
-/*firebase.initializeApp({
-    apiKey: 'AIzaSyC7KErVtON_zmPk9wK40pm4RIR1wIBSdZo',
-    authDomain: 'chileanpremierleague-cf84c.firebaseapp.com',
-    projectId: 'chileanpremierleague-cf84c'
-});*/
-
-
-var config = {
+﻿var config = {
   apiKey: "AIzaSyC7KErVtON_zmPk9wK40pm4RIR1wIBSdZo",
   authDomain: "chileanpremierleague-cf84c.firebaseapp.com",
   databaseURL: "https://chileanpremierleague-cf84c-default-rtdb.firebaseio.com",
@@ -14,9 +7,7 @@ var config = {
 };
 firebase.initializeApp(config);
 
-//var db = firebase.firestore();
-var database = firebase.database();
- 
+var db = firebase.firestore();
 
 
   function obtenerNoticias(){
@@ -244,34 +235,14 @@ function spawnNotification(theBody,theIcon,theTitle) {
   }
   //spawnNotification("a vs b","recursos/zee-ball.png","Partido de Hoy");
  
-  function recibirNotificaciones(){
-
-        var database=db;
-
-var starCountRef =db.ref('notificaciones/'+'noty1');
-starCountRef.on('value', (snapshot) => {
-  const data = snapshot.val();
-	console.log(data);
-  updateStarCount(postElement, data);
+function recibirNotificaciones(){
+var commentsRef = firebase.database().ref();
+commentsRef.on('child_added', (data) => {
+  console.log(data);
+  addCommentElement(postElement, data.key, data.val().text, data.val().author);
 });
-    /*db.collection("notifications").get().then((querySnapshot)=>{
-        var notificaciones=[];
-         querySnapshot.forEach((doc)=>{
-            notificaciones.push(doc);
-         })
-         notificaciones.forEach(function(doc) {
-            spawnNotification(doc.data().body,doc.data().icono,doc.data().titulo);
 
-            db.collection("notifications").doc(doc.id).delete().then(() => {
-                console.log("Document successfully deleted!");
-            }).catch((error) => {
-                console.error("Error removing document: ", error);
-            }); 
 
-         });
-     });
-   */    
-  
 }
 recibirNotificaciones();
 
