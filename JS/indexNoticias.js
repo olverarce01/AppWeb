@@ -44,7 +44,7 @@ var db = firebase.firestore();
                         db.collection("news").doc("nro").update({
                         number: nroNoticia
                         })
-                        console.log("update!");
+                        //console.log("update!");
                         }       
                     else{
                         console.log("No update!");

@@ -111,7 +111,7 @@ function obtenerFechas(){
 if(fechaPartido!=doc.data().nrofecha){
     var div=document.createElement("div");
     div.classList.add("fechapartido")
-    div.textContent=doc.data().fecha;
+    div.textContent="Fecha "+doc.data().nrofecha.toString();
     document.getElementById("tablaPosiciones").appendChild(div);
     fechaPartido=doc.data().nrofecha;   
 
@@ -133,7 +133,7 @@ if(fechaPartido!=doc.data().nrofecha){
             var td3=document.createElement("td");
             td3.textContent=doc.data().golesA;
             var td4=document.createElement("td");
-            td4.textContent="-";
+            td4.textContent=doc.data().fecha;
             var td5=document.createElement("td");
             td5.textContent=doc.data().golesB;
             var td6=document.createElement("td");
@@ -162,22 +162,5 @@ if(fechaPartido!=doc.data().nrofecha){
     })
 i++;
 }
-   // var docRef=db.collection("fechas").doc("fechas").collection("fecha1").doc("partido1");
-/*
-    docRef.get().then((doc) => 
-    {
-
-
-        if (doc.exists) {  
-            // console.log("Document data:", doc.data());
-
-        } else {
-            // doc.data() will be undefined in this case
-            console.log("No such document!");
-        }
-    }).catch((error) => {
-        console.log("Error getting document:", error);
-    });
-*/
 }
 obtenerFechas();
