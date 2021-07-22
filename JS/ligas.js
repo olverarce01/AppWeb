@@ -88,7 +88,7 @@ firebase.initializeApp({
         console.error("Error adding document: ", error);
     });
 }
-//obtenerItemPartido();
+obtenerItemPartido();
 
 
 
