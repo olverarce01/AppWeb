@@ -1,7 +1,7 @@
 firebase.initializeApp({
-    apiKey: 'AIzaSyC7KErVtON_zmPk9wK40pm4RIR1wIBSdZo',
-    authDomain: 'chileanpremierleague-cf84c.firebaseapp.com',
-    projectId: 'chileanpremierleague-cf84c'
+    apiKey: 'AIzaSyB7F2CYw8tBu21ZXUen9gOYSryMHnB2hdw',
+    authDomain: 'chileanpremierleague-e69f2.firebaseapp.com',
+    projectId: 'chileanpremierleague-e69f2'
   });
   var db = firebase.firestore();
 
@@ -11,7 +11,7 @@ firebase.initializeApp({
 function obtenerFechas(){
     var fecha="fecha";
     var i=1;
-    var f=2;
+    var f=17;
     while(i<=f){
 
         var aux=fecha.concat(i.toString());

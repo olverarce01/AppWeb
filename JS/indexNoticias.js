@@ -1,9 +1,9 @@
 ﻿var config = {
-  apiKey: "AIzaSyC7KErVtON_zmPk9wK40pm4RIR1wIBSdZo",
-  authDomain: "chileanpremierleague-cf84c.firebaseapp.com",
-  databaseURL: "https://chileanpremierleague-cf84c-default-rtdb.firebaseio.com",
-  projectId: 'chileanpremierleague-cf84c',
-  storageBucket: "chileanpremierleague-cf84c.appspot.com"
+  apiKey: 'AIzaSyB7F2CYw8tBu21ZXUen9gOYSryMHnB2hdw',
+  authDomain: 'chileanpremierleague-e69f2.firebaseapp.com',
+  projectId: 'chileanpremierleague-e69f2',
+  databaseURL: 'https://chileanpremierleague-e69f2-default-rtdb.firebaseio.com',
+  storageBucket: "chileanpremierleague-e69f2.appspot.com"
 };
 firebase.initializeApp(config);
 
