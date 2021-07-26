@@ -107,7 +107,7 @@ let listaIds=[];
                 this.botonResponder=document.createElement("a");
                 this.botonResponder.classList.add("opcionComentarios");
                 this.botonResponder.href="#";
-                this.botonResponder.textContent="Responder";
+                this.botonResponder.textContent="";
                 this.botonMediaFin.appendChild(this.botonResponder);
                 
                 this.divMediaBody.appendChild(this.nombreMediaInicio);
