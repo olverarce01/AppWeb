@@ -41,9 +41,21 @@ function obtenerEquipos(){
             h5Nombre.classList.add("text-center");
             h5Nombre.textContent=doc.id;
 
-            var h5datos=document.createElement("h5");
-            h5datos.textContent=doc.data().datos;
-            
+
+            //var h5datos=document.createElement("h5");
+            //h5datos.textContent=doc.data().datos;
+             datos=doc.data().datos;
+            var pos=0;
+            var fin=datos.;
+            while(pos<fin){
+                if(dato[pos]=='-'){
+                    palabra(mostrar);
+                    palabra="";
+                }else{palabra.add(dato[pos]);}
+            }
+            if(palabra!=""){
+                palabra.mostrar()i
+            }
             divCardBody.appendChild(h5Nombre);
             divCardBody.appendChild(h5datos);
 

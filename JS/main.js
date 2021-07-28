@@ -91,10 +91,10 @@ let listaIds=[];
             
                 this.nombreMediaInicio=document.createElement("p");
                 this.nombreMediaInicio.classList.add("nombre");this.nombreMediaInicio.classList.add("mediaInicio");
-                this.nombreMediaInicio.textContent=this.name;
+                this.nombreMediaInicio.textContent=this.name ;
                 
                 this.span1=document.createElement("span");
-                this.span1.textContent=this.date;
+                this.span1.textContent=" "+this.date;
                 this.nombreMediaInicio.appendChild(this.span1);        
                 
                 this.comentarioMediaInicio=document.createElement("p");
@@ -150,6 +150,7 @@ let listaIds=[];
 
    function actualizarNoticia(docu){
     spanNoticia=document.getElementById("texto-noticia");
+    tituloNoticia=document.getElementById("titulo-noticia");
     imgNoticia=document.getElementById("imagen-noticia");
     var docRef = db.collection("news").doc(docu);
     actualizarMensajes();
@@ -157,6 +158,7 @@ let listaIds=[];
         if (doc.exists) {
             //console.log("Document data:", doc.data());
             spanNoticia.textContent=doc.data().texto;
+            tituloNoticia.textContent=doc.data().titulo;
             imgNoticia.src=doc.data().imagen;
         } else {
             console.log("No such document!");
