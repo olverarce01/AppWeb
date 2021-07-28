@@ -7,7 +7,6 @@ firebase.initializeApp({
   });
   var db = firebase.firestore();
 var nameV="anonimo", textV;
-const date = new Date();
 /*var dateV = date.toLocaleDateString("es-CL", {
     weekday: "long", // narrow, short
     year: "numeric", // 2-digit
@@ -19,7 +18,16 @@ const date = new Date();
     minute: "2-digit", // numeric
     second: "2-digit" // numeric
 });*/
-var dateV =
+
+function Ready(){
+    textV = document.getElementById('exampleFormControlTextarea1').value;
+    
+}
+let listaIds=[];
+    document.getElementById('btnComentar').onclick=function(){
+        const date = new Date();
+
+    var dateV =
     date.getFullYear()+"/"+
    ("00" + (date.getMonth() + 1)).slice(-2) + "/" +
   ("00" + date.getDate()).slice(-2) + " " +
@@ -28,12 +36,6 @@ var dateV =
   ("00" + date.getSeconds()).slice(-2);
 
 
-function Ready(){
-    textV = document.getElementById('exampleFormControlTextarea1').value;
-    
-}
-let listaIds=[];
-    document.getElementById('btnComentar').onclick=function(){
         Ready();
         var idDocumento;
         var docRef = db.collection("news").doc("nro");
