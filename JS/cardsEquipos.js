@@ -41,23 +41,31 @@ function obtenerEquipos(){
             h5Nombre.classList.add("text-center");
             h5Nombre.textContent=doc.id;
 
-
+            divCardBody.appendChild(h5Nombre);
             //var h5datos=document.createElement("h5");
             //h5datos.textContent=doc.data().datos;
-             datos=doc.data().datos;
+            var datos=doc.data().datos;
             var pos=0;
-            var fin=datos.;
+            var fin=datos.length;
+            var palabra;
             while(pos<fin){
-                if(dato[pos]=='-'){
-                    palabra(mostrar);
+                if(datos[pos]=='-'){
+                    var p5datos=document.createElement("p");
+                    p5datos.textContent=palabra;
+                    divCardBody.appendChild(p5datos);
                     palabra="";
-                }else{palabra.add(dato[pos]);}
+                }
+                else{
+                palabra+=datos[pos];
+                }
+                pos++;
             }
             if(palabra!=""){
-                palabra.mostrar()i
+                var h5datos=document.createElement("p");
+                    h5datos.textContent=palabra;
+                    divCardBody.appendChild(p5datos);
+                    palabra="";
             }
-            divCardBody.appendChild(h5Nombre);
-            divCardBody.appendChild(h5datos);
 
             divCardEquipo.appendChild(imgIcono);
             divCardEquipo.appendChild(divCardBody);

@@ -8,7 +8,7 @@ firebase.initializeApp({
   var db = firebase.firestore();
 var nameV="anonimo", textV;
 const date = new Date();
-var dateV = date.toLocaleDateString("es-CL", {
+/*var dateV = date.toLocaleDateString("es-CL", {
     weekday: "long", // narrow, short
     year: "numeric", // 2-digit
     month: "short", // numeric, 2-digit, narrow, long
@@ -18,7 +18,14 @@ var dateV = date.toLocaleDateString("es-CL", {
     hour: "numeric", // 2-digit
     minute: "2-digit", // numeric
     second: "2-digit" // numeric
-});
+});*/
+var dateV =
+    date.getFullYear()+"/"+
+   ("00" + (date.getMonth() + 1)).slice(-2) + "/" +
+  ("00" + date.getDate()).slice(-2) + " " +
+  ("00" + date.getHours()).slice(-2) + ":" +
+  ("00" + date.getMinutes()).slice(-2) + ":" +
+  ("00" + date.getSeconds()).slice(-2);
 
 
 function Ready(){
@@ -39,7 +46,7 @@ let listaIds=[];
                 text: textV
             })
             .then((docRef) => {
-                console.log("Document written with ID: ", docRef.id);
+                //console.log("Document written with ID: ", docRef.id);
                 listaIds.push(docRef.id);
             })
             .catch((error) => {
@@ -135,11 +142,20 @@ let listaIds=[];
                 while (contenedor.firstChild) {
                     contenedor.removeChild(contenedor.firstChild);
                 }
+                 var mensajes=[];
                  querySnapshot.forEach((doc)=>{
-                     console.log(doc.id);
+                    mensajes.push(doc); 
+                 })
+                 mensajes.sort(function(a,b){
+                var fechaA=new Date(a.data().date);
+                var fechaB=new Date(b.data().date);
+                
+                return fechaB-fechaA;
+                 });
+                 mensajes.forEach(function(doc){
                      var media=new Media(doc.id,doc.data().name,doc.data().date,doc.data().text);
                      contenedor.appendChild(media.forHtml());
-                 })
+                 });
              });
            
         }
